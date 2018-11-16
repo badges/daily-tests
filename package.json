@@ -1,0 +1,20 @@
+{
+  "name": "daily-tests",
+  "repository": "badges/daily-tests",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Daily tests for the Shields.io server",
+  "scripts": {
+    "install-shields:0-clean": "rimraf shields",
+    "install-shields:1-clone": "git clone --depth 1 https://github.com/badges/shields.git",
+    "install-shields:2-install": "cd shields && npm ci",
+    "install-shields": "run-s install-shields:*",
+    "test:services": "cd shields && npm run test:services",
+    "test": "run-s install-shields test:services"
+  },
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "npm-run-all": "^4.1.3",
+    "rimraf": "^2.6.2"
+  }
+}

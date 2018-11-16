@@ -1,0 +1,33 @@
+version: 2
+
+jobs:
+  services-daily:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+
+      - run:
+          name: Install root dependencies
+          command: npm ci
+
+      - run:
+          name: Install Shields
+          command: npm run install-shields
+
+      - run:
+          name: Run tests
+          command: npm run install-shields
+
+workflows:
+  version: 2
+
+  daily:
+    triggers:
+      - schedule:
+          cron: '0 17 * * *'
+          filters:
+            branches:
+              only: master
+    jobs:
+      - services-daily
