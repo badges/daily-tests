@@ -6,8 +6,8 @@ Daily tests for the [Shields.io server][shields].
 
 ## Why this repo exists
 
-*   badges/shields#2314
-*   badges/shields#1584
+*   https://github.com/badges/shields/issue/2314
+*   https://github.com/badges/shields/issue/1584
 
 ## License
 
