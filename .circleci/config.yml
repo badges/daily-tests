@@ -1,9 +1,12 @@
 version: 2
 
 jobs:
-  services-daily:
+  daily:
+
     docker:
       - image: circleci/node:8
+      - image: redis
+
     steps:
       - checkout
 
@@ -12,12 +15,23 @@ jobs:
           command: npm ci
 
       - run:
-          name: Install Shields
+          name: Install shields
           command: npm run install-shields
 
       - run:
+          name: Prepare GitHub integration
+          command: |
+            mkdir shields/private
+            echo "{\"gh_token\":\"$GITHUB_TOKEN\"}" > shields/private/secret.json
+
+      - run:
           name: Run tests
-          command: npm run test:services
+          command: npm run coverage:test
+
+      - run:
+          name: Send to coveralls.io
+          command: npm run coveralls
+          when: always
 
 workflows:
   version: 2
@@ -26,9 +40,9 @@ workflows:
     triggers:
       - schedule:
           # cron: '0 17 * * *'
-          cron: '42 * * * *'
+          cron: '40 * * * *'
           filters:
             branches:
               only: master
     jobs:
-      - services-daily
+      - daily

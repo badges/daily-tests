@@ -1,6 +1,7 @@
 # daily-tests
 
 [![build status](https://img.shields.io/circleci/project/github/badges/daily-tests.svg?style=flat-square)][build]
+[![coverage](https://img.shields.io/coveralls/github/badges/shields.svg?style=flat-square)][coverage]
 [![backers](https://opencollective.com/shields/backers/badge.svg?style=flat-square)](#backers)
 [![sponsors](https://opencollective.com/shields/sponsors/badge.svg?style=flat-square)](#sponsors)
 [![chat](https://img.shields.io/discord/308323056592486420.svg?logo=discord&style=flat-square)][discord]
@@ -11,6 +12,7 @@ Daily tests for the [Shields.io server][shields].
 [discord]: https://discord.gg/HjJCwm5
 [follow]: https://twitter.com/intent/follow?screen_name=shields_io
 [build]: https://circleci.com/gh/badges/daily-tests
+[coverage]: https://coveralls.io/github/badges/shields
 [shields]: https://github.com/badges/shields
 
 ## Why this repo exists :green_heart:
