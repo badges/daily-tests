@@ -17,7 +17,7 @@ jobs:
 
       - run:
           name: Run tests
-          command: npm run install-shields
+          command: npm run test:services
 
 workflows:
   version: 2
@@ -25,7 +25,8 @@ workflows:
   daily:
     triggers:
       - schedule:
-          cron: '0 17 * * *'
+          # cron: '0 17 * * *'
+          cron: '42 * * * *'
           filters:
             branches:
               only: master
