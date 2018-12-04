@@ -1,6 +1,6 @@
 # daily-tests
 
-[![build status](https://img.shields.io/circleci/project/github/badges/daily-tests.svg?style=flat-square)][build]
+[![build status](https://img.shields.io/circleci/project/github/badges/daily-tests.svg?style=flat-square&label=service%20tests)][build]
 [![coverage](https://img.shields.io/coveralls/github/badges/shields.svg?style=flat-square)][coverage]
 [![backers](https://opencollective.com/shields/backers/badge.svg?style=flat-square)](#backers)
 [![sponsors](https://opencollective.com/shields/sponsors/badge.svg?style=flat-square)](#sponsors)
