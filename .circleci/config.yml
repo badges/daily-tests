@@ -19,18 +19,23 @@ jobs:
           command: npm run install-shields
 
       - run:
-          name: Prepare GitHub integration
-          command: |
-            mkdir shields/private
-            echo "{\"gh_token\":\"$GITHUB_TOKEN\"}" > shields/private/secret.json
+          name: Prepare test summary
+          when: always
+          command: mkdir junit
 
       - run:
           name: Run tests
+          environment:
+            mocha_reporter: mocha-junit-reporter
+            MOCHA_FILE: junit/app/results.xml
           command: npm run coverage:test
           when: always
       
       - run:
           name: Run service tests
+          environment:
+            mocha_reporter: mocha-junit-reporter
+            MOCHA_FILE: junit/services/results.xml
           command: npm run coverage:services
           when: always
 
@@ -39,6 +44,9 @@ jobs:
           command: npm run coveralls
           when: always
 
+      - store_test_results:
+          path: junit
+
 workflows:
   version: 2
 
@@ -46,6 +54,11 @@ workflows:
     triggers:
       - schedule:
           cron: '45 3 * * *'
+          filters:
+            branches:
+              only: master
+      - schedule:
+          cron: '45 15 * * *'
           filters:
             branches:
               only: master
