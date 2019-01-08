@@ -19,11 +19,6 @@ jobs:
           command: npm run install-shields
 
       - run:
-          name: Prepare test summary
-          when: always
-          command: mkdir junit
-
-      - run:
           name: Run tests
           environment:
             mocha_reporter: mocha-junit-reporter
@@ -53,14 +48,16 @@ workflows:
   daily:
     triggers:
       - schedule:
-          cron: '45 3 * * *'
-          filters:
-            branches:
-              only: master
-      - schedule:
-          cron: '45 15 * * *'
+          cron: '0 */12 * * *'
           filters:
             branches:
               only: master
     jobs:
       - daily
+
+  on-commit:
+    jobs:
+      - daily
+          filters:
+            branches:
+              only: master
