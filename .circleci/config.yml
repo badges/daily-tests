@@ -19,6 +19,11 @@ jobs:
           command: npm run install-shields
 
       - run:
+          name: Prepare test summary
+          when: always
+          command: mkdir junit
+
+      - run:
           name: Run tests
           environment:
             mocha_reporter: mocha-junit-reporter
