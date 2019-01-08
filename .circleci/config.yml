@@ -31,13 +31,13 @@ jobs:
           command: npm run coverage:test
           when: always
       
-      - run:
-          name: Run service tests
-          environment:
-            mocha_reporter: mocha-junit-reporter
-            MOCHA_FILE: junit/services/results.xml
-          command: npm run coverage:services
-          when: always
+      # - run:
+      #     name: Run service tests
+      #     environment:
+      #       mocha_reporter: mocha-junit-reporter
+      #       MOCHA_FILE: junit/services/results.xml
+      #     command: npm run coverage:services
+      #     when: always
 
       - run:
           name: Send to coveralls.io
@@ -46,7 +46,7 @@ jobs:
 
       - run:
           name: debugging missing tests
-          command: ls -R junit
+          command: ls -R shields/junit
           when: always
 
       - store_test_results:
