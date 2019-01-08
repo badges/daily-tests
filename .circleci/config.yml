@@ -42,6 +42,7 @@ jobs:
       - run:
           name: debugging missing tests
           command: ls -R junit
+          when: always
 
       - store_test_results:
           path: junit
