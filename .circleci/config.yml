@@ -57,7 +57,7 @@ workflows:
 
   on-commit:
     jobs:
-      - daily
+      - daily:
           filters:
             branches:
               only: master
