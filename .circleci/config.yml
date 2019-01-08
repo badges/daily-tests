@@ -39,6 +39,10 @@ jobs:
           command: npm run coveralls
           when: always
 
+      - run:
+          name: debugging missing tests
+          command: ls -R junit
+
       - store_test_results:
           path: junit
 
