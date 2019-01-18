@@ -19,10 +19,10 @@ jobs:
           command: npm run install-shields
 
       - run:
-          name: Run core tests
+          name: Run main tests
           environment:
             mocha_reporter: mocha-junit-reporter
-            MOCHA_FILE: junit/core/results.xml
+            MOCHA_FILE: junit/main/results.xml
           command: npm run coverage:test
           when: always
       
