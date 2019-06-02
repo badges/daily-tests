@@ -11,7 +11,7 @@
     "install-shields": "run-s install-shields:*",
     "coverage:test": "cd shields && npm run coverage:test",
     "coverage:services": "cd shields && npm run coverage:test:services",
-    "coveralls": "cd shields && node_modules/.bin/nyc report --reporter=text-lcov report | CIRCLE_SHA1=$(git rev-parse --verify HEAD) ../node_modules/.bin/coveralls",
+    "coveralls": "cd shields && node_modules/.bin/nyc report --reporter=text-lcov | CIRCLE_SHA1=$(git rev-parse --verify HEAD) ../node_modules/.bin/coveralls",
     "test": "run-s install-shields coverage:test coverage:services coveralls"
   },
   "license": "CC0-1.0",
