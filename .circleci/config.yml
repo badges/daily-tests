@@ -35,7 +35,7 @@ jobs:
           environment:
             mocha_reporter: mocha-junit-reporter
             MOCHA_FILE: junit/services/results.xml
-          command: npm run coverage:services
+          command: RETRY_COUNT=3 npm run coverage:services
           when: always
 
       - run:
