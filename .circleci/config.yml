@@ -13,6 +13,10 @@ jobs:
       - run:
           name: Install root dependencies
           command: npm ci
+          environment:
+            # https://docs.cypress.io/guides/getting-started/installing-cypress.html#Skipping-installation
+            # We don't need to install the Cypress binary in jobs that aren't actually running Cypress.
+            CYPRESS_INSTALL_BINARY: 0
 
       - run:
           name: Install shields
