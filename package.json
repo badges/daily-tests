@@ -6,11 +6,11 @@
   "description": "Daily tests for the Shields.io server",
   "scripts": {
     "install-shields:0-clean": "rimraf shields",
-    "install-shields:1-clone": "git clone --depth 1 https://github.com/badges/shields.git",
-    "install-shields:2-install": "cd shields && npm ci",
+    "install-shields:1-clone": "git clone https://github.com/badges/shields.git",
+    "install-shields:2-install": "cd shields && git checkout service-tests-low-timeout && npm ci",
     "install-shields": "run-s install-shields:*",
     "coverage:test": "cd shields && npm run coverage:test",
-    "coverage:services": "cd shields && npm run coverage:test:services",
+    "coverage:services": "cd shields && npm run test:services",
     "coveralls": "cd shields && node_modules/.bin/nyc report --reporter=text-lcov | CIRCLE_SHA1=$(git rev-parse --verify HEAD) ../node_modules/.bin/coveralls",
     "test": "run-s install-shields coverage:test coverage:services coveralls"
   },

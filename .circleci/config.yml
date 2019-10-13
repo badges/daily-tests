@@ -32,9 +32,9 @@ jobs:
       
       - run:
           name: Run service tests
-          environment:
-            mocha_reporter: mocha-junit-reporter
-            MOCHA_FILE: junit/services/results.xml
+          # environment:
+          #   mocha_reporter: mocha-junit-reporter
+          #   MOCHA_FILE: junit/services/results.xml
           command: RETRY_COUNT=3 npm run coverage:services
           when: always
 
