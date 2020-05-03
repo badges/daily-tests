@@ -4,7 +4,7 @@ jobs:
   daily:
 
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:12
       - image: redis
 
     steps:
@@ -21,6 +21,7 @@ jobs:
             # https://docs.cypress.io/guides/getting-started/installing-cypress.html#Skipping-installation
             # We don't need to install the Cypress binary in jobs that aren't actually running Cypress.
             CYPRESS_INSTALL_BINARY: 0
+
 
       - run:
           name: Run main tests
