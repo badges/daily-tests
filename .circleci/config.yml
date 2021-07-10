@@ -4,7 +4,7 @@ jobs:
   daily:
 
     docker:
-      - image: circleci/node:14
+      - image: circleci/node:14.16.0
       - image: redis
 
     steps:
